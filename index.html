@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Seu Nome</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background-color: #0a0a0a;
+      color: white;
+      line-height: 1.6;
+    }
+    header, section, footer {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    nav {
+      background: #111;
+      border-bottom: 1px solid #333;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #ccc;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #121212;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .hero p {
+      color: #bbb;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+    .buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .buttons a {
+      border: 1px solid white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+    .buttons a:hover {
+      background: white;
+      color: black;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    section p {
+      color: #ccc;
+      text-align: justify;
+    }
+    .projects {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: #1b1b1b;
+      padding: 1.5rem;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+    .project-card h3 {
+      margin-top: 0;
+    }
+    .project-card a {
+      color: #4fc3f7;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #333;
+      padding: 2rem;
+    }
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">Portfólio</div>
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+ <header class="hero">
+  <img src="foto.jpeg" alt="Foto de Ana Galdino" class="profile-pic" />
+  <h1>Olá, sou <strong>Ana Galdino</strong></h1>
+  <p>Estudante de Análise e Desenvolvimento de Sistemas, apaixonada por tecnologia e inovação.</p>
+  <div class="buttons">
+    <a href="https://github.com/AnaPaula-Galdino" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/galdinoana/" target="_blank">LinkedIn</a>
+    <a href="https://wa.me/5511980509050" target="_blank">WhatsApp</a>
+    <a href="mailto:ana.galdiino@outlook.com">E-mail</a>
+  </div>
+</header>
+
+
+  <section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>
+      🎓 Estudante de Análise e Desenvolvimento de Sistemas na Universidade Eniac, dedicada ao constante aprendizado e aprimoramento técnico.</p>
+
+      🖥️ Apaixonada por tecnologia, estou focada em desenvolver habilidades na área de TI, visando contribuir com soluções inovadoras e impactantes no mundo da computação.</p>
+
+      💼 Atualmente na Axenya, faço parte da equipe de faturamento, onde atuo com análise de dados, rateio e envio de faturamento. Além disso, destaco-me pela integração em equipe, promovendo um ambiente colaborativo e produtivo. </p>
+
+      🚀 Em busca de desafios e oportunidades que ampliem meus conhecimentos e me permitam agregar valor às organizações por meio de estratégias eficazes e um trabalho comprometido.
+    </p>
+  </section>
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>App Safe City</h3>
+        <p>Aplicativo de segurança com foco colaborativo, permitindo que usuários relatem e recebam alertas em tempo real sobre áreas de risco.</p>
+        <p>Linguagem: Java</p> 
+        <p>Ambiente: Android Studio </p> 
+        <a href="https://github.com/AnaPaula-Galdino/SafeCity" target="_blank">Ver no GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>Automação de Tarefas com Python</h3>
+        <p>Projeto voltado à automatização de tarefas repetitivas e operacionais, com foco em ganho de eficiência e redução de erros manuais. Utiliza scripts em Python para otimizar processos como conferência de dados, organização de informações e geração de relatórios.</p>
+        <p>Linguagem: Python</p> 
+        <p>Status: Em andamento</p> 
+        <a href="https://github.com/AnaPaula-Galdino/Automatizar_tarefas_python" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p style="text-align: center">
+      Para parcerias, dúvidas ou oportunidades, sinta-se à vontade para me chamar pelos botões acima.
+    </p>
+  </section>
+
+  <footer >
+    © 2025 Ana Paula Galdino. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
