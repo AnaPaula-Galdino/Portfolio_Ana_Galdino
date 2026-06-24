@@ -1,194 +1,399 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio - Ana Galdino</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background-color: #0a0a0a;
-      color: white;
-      line-height: 1.6;
-    }
-    header, section, footer {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    nav {
-      background: #111;
-      border-bottom: 1px solid #333;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .brand {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-    nav a:hover {
-      color: #ccc;
-    }
-    .hero {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: #121212;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-    .hero p {
-      color: #bbb;
-      max-width: 600px;
-      margin: 1rem auto;
-    }
-    .buttons {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .buttons a {
-      border: 1px solid white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      color: white;
-      transition: 0.3s;
-    }
-    .buttons a:hover {
-      background: white;
-      color: black;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    section p {
-      color: #ccc;
-      text-align: justify;
-    }
-    .projects {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-top: 2rem;
-    }
-    .project-card {
-      background: #1b1b1b;
-      padding: 1.5rem;
-      border: 1px solid #333;
-      border-radius: 10px;
-    }
-    .project-card h3 {
-      margin-top: 0;
-    }
-    .project-card a {
-      color: #4fc3f7;
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-      border-top: 1px solid #333;
-      padding: 2rem;
-    }
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ana Paula Galdino — Dados, IA & Automação</title>
+<meta name="description" content="Portfólio de Ana Paula Galdino — profissional de tecnologia com foco em dados, IA, automação e liderança." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#070b12; --bg2:#0b1019; --card:#111824; --border:#1f2a3a;
+    --text:#e8eef7; --muted:#93a3bd; --soft:#6b7a93;
+    --a1:#4fd1c5; --a2:#7c9cff; --a3:#b07cff;
+    --grad:linear-gradient(120deg,#4fd1c5,#7c9cff 55%,#b07cff);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.02em;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-  </style>
+  .bg-orbs{position:fixed;inset:0;z-index:-2;overflow:hidden;}
+  .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.26;animation:float 18s ease-in-out infinite;}
+  .orb.o1{width:420px;height:420px;background:#4fd1c5;top:-120px;left:-100px;}
+  .orb.o2{width:460px;height:460px;background:#7c9cff;top:28%;right:-160px;animation-delay:-6s;}
+  .orb.o3{width:380px;height:380px;background:#b07cff;bottom:-140px;left:25%;animation-delay:-12s;}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(28px,-36px) scale(1.07);}}
+  body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 500px at 70% -5%,rgba(124,156,255,.10),transparent),var(--bg);}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,11,18,.72);border-bottom:1px solid var(--border);}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .brand{font-family:'Sora';font-weight:800;font-size:1.1rem;}
+  .nav-links{display:flex;gap:22px;list-style:none;}
+  .nav-links a{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--text);}
+  .nav-cta{padding:9px 16px;border-radius:10px;background:var(--grad);color:#06101a;font-weight:700;font-size:.85rem;transition:transform .15s;}
+  .nav-cta:hover{transform:translateY(-2px);}
+  @media(max-width:820px){.nav-links{display:none;}}
+
+  .hero{padding:72px 0 44px;}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:46px;align-items:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--a1);background:rgba(79,209,197,.08);border:1px solid rgba(79,209,197,.25);padding:7px 14px;border-radius:999px;}
+  .hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:18px 0 6px;}
+  .typed-wrap{font-family:'Sora';font-weight:700;font-size:clamp(1.05rem,3vw,1.45rem);min-height:1.7em;margin-bottom:12px;color:var(--text);}
+  .typed{border-right:2px solid var(--a1);padding-right:3px;}
+  .hero .role{font-size:1.05rem;color:var(--muted);max-width:520px;}
+  .hero .role b{color:var(--text);font-weight:600;}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:.92rem;transition:transform .15s,box-shadow .25s,border-color .2s;}
+  .btn-primary{background:var(--grad);color:#06101a;box-shadow:0 10px 30px rgba(79,209,197,.22);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(124,156,255,.32);}
+  .btn-ghost{border:1px solid var(--border);background:var(--bg2);color:var(--text);}
+  .btn-ghost:hover{transform:translateY(-3px);border-color:var(--a2);}
+  .avatar{position:relative;width:240px;height:240px;margin:0 auto;flex-shrink:0;}
+  .avatar .ring{position:absolute;inset:-6px;border-radius:50%;background:var(--grad);animation:spin 9s linear infinite;opacity:.85;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .avatar img,.mono{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;border:6px solid var(--bg);z-index:1;}
+  .mono{display:none;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;font-size:4.2rem;background:#0e1626;}
+  .mono span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;}
+  .stat{background:linear-gradient(180deg,var(--card),rgba(17,24,36,.4));border:1px solid var(--border);border-radius:var(--radius);padding:22px 16px;text-align:center;transition:transform .2s,border-color .2s;}
+  .stat:hover{transform:translateY(-4px);border-color:rgba(124,156,255,.4);}
+  .stat .n{font-family:'Sora';font-weight:800;font-size:1.85rem;}
+  .stat .l{color:var(--muted);font-size:.8rem;margin-top:4px;}
+
+  section{padding:60px 0;}
+  .sec-head{margin-bottom:32px;}
+  .sec-head .k{color:var(--a1);font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;}
+  .sec-head h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-top:8px;}
+  .sec-head p{color:var(--muted);max-width:640px;margin-top:12px;}
+
+  .about{display:grid;grid-template-columns:1.35fr 1fr;gap:34px;align-items:start;}
+  .about p{color:var(--muted);margin-bottom:13px;}
+  .about p b{color:var(--text);}
+  .quote{border-left:3px solid var(--a1);padding:14px 18px;background:var(--bg2);border-radius:0 12px 12px 0;color:var(--text);font-style:italic;}
+  .infocards{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+  .infocard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;transition:transform .2s,border-color .2s;}
+  .infocard:hover{transform:translateY(-4px);border-color:rgba(124,156,255,.4);}
+  .infocard .ic{font-size:1.5rem;}
+  .infocard .t{color:var(--a1);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;font-weight:600;margin-top:8px;}
+  .infocard .d{font-weight:600;font-size:.95rem;margin-top:2px;}
+  .infocard .s{color:var(--muted);font-size:.8rem;}
+
+  .marquee{margin-top:26px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .mtrack{display:flex;gap:11px;width:max-content;animation:scrollx 30s linear infinite;}
+  .marquee:hover .mtrack{animation-play-state:paused;}
+  @keyframes scrollx{to{transform:translateX(-50%);}}
+  .mtrack .chip{white-space:nowrap;}
+
+  .skill-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .skill-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:transform .2s,border-color .2s;}
+  .skill-card:hover{transform:translateY(-4px);border-color:rgba(124,156,255,.35);}
+  .skill-card h3{font-size:1rem;margin-bottom:14px;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{font-size:.83rem;color:var(--text);background:var(--bg2);border:1px solid var(--border);padding:7px 13px;border-radius:9px;transition:border-color .2s,transform .15s;}
+  .chip:hover{border-color:var(--a2);transform:translateY(-2px);}
+
+  .cert-carousel{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .cert-track{display:flex;gap:16px;width:max-content;animation:scrollx 38s linear infinite;}
+  .cert-carousel:hover .cert-track{animation-play-state:paused;}
+  .cert{width:290px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:transform .2s,border-color .2s;}
+  .cert:hover{transform:translateY(-5px);border-color:rgba(124,156,255,.45);}
+  .cert .badge{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:var(--bg2);border:1px solid var(--border);margin-bottom:14px;}
+  .cert h3{font-size:1rem;margin-bottom:4px;}
+  .cert .issuer{color:var(--a1);font-size:.84rem;font-weight:500;}
+  .cert .meta{color:var(--muted);font-size:.79rem;margin-top:8px;}
+
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .25s;}
+  .card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+  .card:hover{transform:translateY(-5px);border-color:rgba(124,156,255,.4);box-shadow:0 18px 44px rgba(0,0,0,.4);}
+  .card:hover::before{transform:scaleX(1);}
+  .card .tag{align-self:flex-start;font-size:.69rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#06101a;background:var(--a1);padding:4px 9px;border-radius:6px;margin-bottom:13px;}
+  .card h3{font-size:1.15rem;margin-bottom:8px;}
+  .card p{color:var(--muted);font-size:.92rem;flex:1;margin-bottom:15px;}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:15px;}
+  .tags span{font-size:.74rem;color:var(--soft);background:var(--bg2);border:1px solid var(--border);padding:4px 9px;border-radius:999px;}
+  .clinks{display:flex;gap:16px;margin-top:auto;}
+  .clinks a{color:var(--a1);font-weight:600;font-size:.87rem;}
+  .clinks a:hover{text-decoration:underline;}
+
+  .tl{display:grid;gap:13px;}
+  .titem{display:flex;gap:18px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;transition:transform .2s,border-color .2s;}
+  .titem:hover{transform:translateX(5px);border-color:rgba(124,156,255,.4);}
+  .titem .mark{width:12px;height:12px;border-radius:50%;background:var(--grad);margin-top:7px;flex-shrink:0;box-shadow:0 0 0 4px rgba(79,209,197,.12);}
+  .titem h3{font-size:1.02rem;}
+  .titem .when{color:var(--a1);font-size:.83rem;font-weight:500;}
+  .titem .meta{color:var(--muted);font-size:.87rem;margin-top:3px;}
+
+  .contact{text-align:center;}
+  .contact h2{font-size:clamp(1.8rem,4vw,2.5rem);}
+  .contact p{color:var(--muted);max-width:520px;margin:14px auto 26px;}
+  .cgrid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+
+  footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--soft);font-size:.85rem;}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ===== Responsivo ===== */
+  @media(max-width:980px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:820px){
+    .hero-grid{grid-template-columns:1fr;text-align:center;gap:30px;}
+    .avatar{order:-1;width:190px;height:190px;}
+    .cta{justify-content:center;}
+    .hero .role{margin-left:auto;margin-right:auto;}
+    .about{grid-template-columns:1fr;}
+    .skill-cols{grid-template-columns:1fr;}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px;}
+    .stats{grid-template-columns:1fr 1fr;gap:12px;}
+    .infocards{grid-template-columns:1fr 1fr;}
+    section{padding:48px 0;}
+    .btn{padding:11px 16px;font-size:.88rem;}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}}
+</style>
 </head>
 <body>
+<div class="bg-orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
 
-  <nav>
-    <div class="brand">Portfólio</div>
-    <ul>
-      <li><a href="#sobre">Sobre</a></li>
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">Ana<span class="grad-text">Galdino</span></div>
+    <ul class="nav-links">
+      <li><a href="#sobre">História</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certs">Certificados</a></li>
       <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
     </ul>
-  </nav>
+    <a class="nav-cta" href="#contato">Contato</a>
+  </div>
+</nav>
 
- <header class="hero">
-  <img src="foto.jpeg" alt="Foto de Ana Galdino" class="profile-pic" />
-  <h1>Olá, sou <strong>Ana Galdino</strong></h1>
-  <p>Estudante de Análise e Desenvolvimento de Sistemas, apaixonada por tecnologia e inovação.</p>
-  <div class="buttons">
-    <a href="https://github.com/AnaPaula-Galdino" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/galdinoana/" target="_blank">LinkedIn</a>
-    <a href="https://wa.me/5511980509050" target="_blank">WhatsApp</a>
-    <a href="mailto:ana.galdiino@outlook.com">E-mail</a>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Dados · IA · Automação</span>
+      <h1>Ana Paula <span class="grad-text">Galdino</span></h1>
+      <div class="typed-wrap"><span class="typed" id="typed"></span></div>
+      <p class="role">Conecto <b>dados, inteligência artificial e automação</b> para transformar operação em estratégia — gerando eficiência, previsibilidade e impacto real no negócio.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/galdinoana/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/AnaPaula-Galdino" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="avatar">
+      <div class="ring"></div>
+      <img src="foto2026.jpg" alt="Ana Paula Galdino" onerror="this.style.display='none';document.getElementById('mono').style.display='flex';" />
+      <div class="mono" id="mono"><span>AG</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="n grad-text" data-count="80" data-suf="%">0%</div><div class="l">do tempo operacional reduzido com automação</div></div>
+      <div class="stat reveal"><div class="n grad-text" data-count="20" data-suf="+">0</div><div class="l">projetos publicados no GitHub</div></div>
+      <div class="stat reveal"><div class="n grad-text" data-count="5" data-suf="">0</div><div class="l">linguagens (Python, SQL, Java, JS, C++)</div></div>
+      <div class="stat reveal"><div class="n grad-text" data-count="2273" data-suf="+">0</div><div class="l">seguidores no LinkedIn</div></div>
+    </div>
   </div>
 </header>
 
-
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>
-      🎓 Estudante de Análise e Desenvolvimento de Sistemas na Universidade Eniac, dedicada ao constante aprendizado e aprimoramento técnico.</p>
-
-      🖥️ Apaixonada por tecnologia, estou focada em desenvolver habilidades na área de TI, visando contribuir com soluções inovadoras e impactantes no mundo da computação.</p>
-
-      💼 Atualmente na Axenya, faço parte da equipe de faturamento, onde atuo com análise de dados, rateio e envio de faturamento. Além disso, destaco-me pela integração em equipe, promovendo um ambiente colaborativo e produtivo. </p>
-
-      🚀 Em busca de desafios e oportunidades que ampliem meus conhecimentos e me permitam agregar valor às organizações por meio de estratégias eficazes e um trabalho comprometido.
-    </p>
-  </section>
-
-  <section id="projetos">
-    <h2>Projetos</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>App Safe City</h3>
-        <p>Aplicativo de segurança com foco colaborativo, permitindo que usuários relatem e recebam alertas em tempo real sobre áreas de risco.</p>
-        <p>Linguagem: Java</p> 
-        <p>Ambiente: Android Studio </p> 
-        <a href="https://github.com/AnaPaula-Galdino/SafeCity" target="_blank">Ver no GitHub</a>
+<section id="sobre">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="k">Minha história</span>
+      <h2>De executar processos a redesenhá-los</h2>
+    </div>
+    <div class="about">
+      <div class="reveal">
+        <p>Comecei minha carreira como <b>estagiária na área operacional</b>. Ao longo da trajetória, evoluí até assumir a <b>liderança de faturamento</b> — deixando de apenas executar processos para repensar como eles funcionam.</p>
+        <p>Hoje <b>lidero um time</b> e sou responsável pela <b>eficiência do faturamento em seguros de saúde, vida e odontológico</b>, com foco em escala e melhoria contínua. Venho impulsionando essa transformação com dados e tecnologia:</p>
+        <p>→ Redução de até <b>80% do tempo operacional</b> com automações em Python, IA e RPA<br>
+        → Desenvolvimento de <b>agentes inteligentes</b> e soluções com IA Generativa<br>
+        → <b>Integração de sistemas</b> via APIs e soluções em Google Cloud<br>
+        → Criação de <b>dashboards e indicadores</b> para apoio à decisão</p>
+        <div class="quote">"Acredito que áreas operacionais não devem ser apenas operacionais. Elas podem — e devem — ser estratégicas."</div>
       </div>
-      <div class="project-card">
-        <h3>Automação de Tarefas com Python</h3>
-        <p>Projeto voltado à automatização de tarefas repetitivas e operacionais, com foco em ganho de eficiência e redução de erros manuais. Utiliza scripts em Python para otimizar processos como conferência de dados, organização de informações e geração de relatórios.</p>
-        <p>Linguagem: Python</p> 
-        <p>Status: Em andamento</p> 
-        <a href="https://github.com/AnaPaula-Galdino/Automatizar_tarefas_python" target="_blank">Ver no GitHub</a>
+      <div class="infocards reveal">
+        <div class="infocard"><div class="ic">📈</div><div class="t">Atuação</div><div class="d">Liderança em Faturamento</div><div class="s">saúde, vida e odontológico</div></div>
+        <div class="infocard"><div class="ic">🎓</div><div class="t">Formação</div><div class="d">Pós em Data Analytics</div><div class="s">FIAP · prev. 2026</div></div>
+        <div class="infocard"><div class="ic">🤖</div><div class="t">Foco</div><div class="d">Dados · IA · Automação</div><div class="s">eficiência e decisão</div></div>
+        <div class="infocard"><div class="ic">📍</div><div class="t">Local</div><div class="d">São Paulo · Brasil</div><div class="s">remoto / híbrido</div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p style="text-align: center">
-      Para parcerias, dúvidas ou oportunidades, sinta-se à vontade para me chamar pelos botões acima.
-    </p>
-  </section>
+<section id="skills" style="background:linear-gradient(180deg,transparent,var(--bg2),transparent);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="k">Skills</span>
+      <h2>Da consulta SQL ao agente de IA</h2>
+      <p>Um conjunto que cobre dados, cloud, desenvolvimento e a ponte entre negócio e tecnologia.</p>
+    </div>
+    <div class="skill-cols">
+      <div class="skill-card reveal"><h3>📊 Dados & BI</h3><div class="chips"><span class="chip">Análise de dados</span><span class="chip">Machine Learning</span><span class="chip">Power BI</span><span class="chip">Looker Studio</span><span class="chip">Estatística</span><span class="chip">Dashboards</span><span class="chip">Storytelling com dados</span></div></div>
+      <div class="skill-card reveal"><h3>🤖 IA & Automação</h3><div class="chips"><span class="chip">IA Generativa</span><span class="chip">Agentes Inteligentes</span><span class="chip">Vertex AI / AI Studio</span><span class="chip">RPA</span><span class="chip">Automação de processos</span><span class="chip">Integração via APIs</span></div></div>
+      <div class="skill-card reveal"><h3>☁️ Cloud & Linguagens</h3><div class="chips"><span class="chip">Google Cloud</span><span class="chip">BigQuery</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">C++</span></div></div>
+      <div class="skill-card reveal"><h3>🧭 Gestão & Soft skills</h3><div class="chips"><span class="chip">Liderança de equipes</span><span class="chip">Gestão de projetos</span><span class="chip">Comunicação executiva</span><span class="chip">Pensamento analítico</span><span class="chip">Scrum & Kanban</span><span class="chip">Jira / Notion / HubSpot</span></div></div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="mtrack" id="mtrack">
+        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Google Cloud</span><span class="chip">BigQuery</span><span class="chip">Vertex AI</span><span class="chip">Power BI</span><span class="chip">Machine Learning</span><span class="chip">IA Generativa</span><span class="chip">RPA</span><span class="chip">APIs</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">C++</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">Plotly</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer >
-    © 2025 Ana Paula Galdino. Todos os direitos reservados.
-  </footer>
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="k">Certificações & Selos</span>
+      <h2>Aprendizado contínuo</h2>
+      <p>Credenciais de Google, Microsoft e parceiros — sempre acompanhando a evolução de dados e IA.</p>
+    </div>
+  </div>
+  <div class="cert-carousel">
+    <div class="cert-track" id="certTrack">
+      <div class="cert"><div class="badge">☁️</div><h3>Cloud Computing Foundations</h3><div class="issuer">Google Cloud</div><div class="meta">Credencial 8589545</div></div>
+      <div class="cert"><div class="badge">🔷</div><h3>Microsoft Azure — Fundamentos</h3><div class="issuer">Microsoft · TFTEC Cloud</div><div class="meta">Cloud Computing</div></div>
+      <div class="cert"><div class="badge">🤖</div><h3>Build with AI 2026</h3><div class="issuer">Google Developer Program</div><div class="meta">AI Agents · BigQuery · IA Generativa</div></div>
+      <div class="cert"><div class="badge">⚡</div><h3>IA e Produtividade</h3><div class="issuer">Open Academy · Santander + Google</div><div class="meta">2025 · Concluído</div></div>
+      <div class="cert"><div class="badge">🧠</div><h3>IA aplicada a redes</h3><div class="issuer">Senac</div><div class="meta">2025 · Concluído</div></div>
+      <div class="cert"><div class="badge">🐍</div><h3>Python e Orientação a Objetos</h3><div class="issuer">Alura</div><div class="meta">2025</div></div>
+    </div>
+  </div>
+</section>
 
+<section id="projetos" style="background:linear-gradient(180deg,transparent,var(--bg2),transparent);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="k">Projetos</span>
+      <h2>Trabalhos que mostram resultado</h2>
+      <p>De análise de dados e IA a desenvolvimento em várias linguagens. Tudo com código aberto no GitHub.</p>
+    </div>
+    <div class="projects">
+      <article class="card reveal">
+        <span class="tag">Destaque</span>
+        <h3>Análise E-commerce Olist</h3>
+        <p>Análise executiva de ~93 mil pedidos reais (Tech Challenge FIAP): desempenho comercial, logística e satisfação, com recomendações estratégicas.</p>
+        <div class="tags"><span>Python</span><span>pandas</span><span>Data Analytics</span></div>
+        <div class="clinks"><a href="https://github.com/AnaPaula-Galdino/tech-challenge-olist-analytics" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="card reveal">
+        <span class="tag">IA / ML</span>
+        <h3>Previsão de Churn</h3>
+        <p>Modelo de Machine Learning que prevê quais clientes vão deixar de comprar, com ROC AUC de 0,91 e drivers de negócio interpretáveis.</p>
+        <div class="tags"><span>Python</span><span>scikit-learn</span></div>
+        <div class="clinks"><a href="https://github.com/AnaPaula-Galdino/churn-prediction-ecommerce" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Ao vivo</span>
+        <h3>Dashboard de Vendas</h3>
+        <p>Painel analítico interativo que roda no navegador, com filtros em tempo real e visualizações dinâmicas.</p>
+        <div class="tags"><span>JavaScript</span><span>Chart.js</span></div>
+        <div class="clinks"><a href="https://anapaula-galdino.github.io/dashboard-vendas-js/" target="_blank" rel="noopener">Ver ao vivo ↗</a><a href="https://github.com/AnaPaula-Galdino/dashboard-vendas-js" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Faturamento</span>
+        <h3>Faturamento & Inadimplência</h3>
+        <p>Análise de contas a receber inspirada no meu dia a dia: aging de recebíveis, DSO e inadimplência por segmento, em SQL.</p>
+        <div class="tags"><span>SQL</span><span>Python</span></div>
+        <div class="clinks"><a href="https://github.com/AnaPaula-Galdino/faturamento-inadimplencia-sql" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Dev</span>
+        <h3>Analisador Estatístico</h3>
+        <p>Ferramenta de linha de comando em C++ que calcula estatística descritiva e histograma, usando a STL.</p>
+        <div class="tags"><span>C++</span><span>STL</span></div>
+        <div class="clinks"><a href="https://github.com/AnaPaula-Galdino/analisador-estatistico-cpp" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Mobile</span>
+        <h3>App SafeCity</h3>
+        <p>Aplicativo de segurança colaborativa em Java/Android: usuários relatam e recebem alertas em tempo real sobre áreas de risco.</p>
+        <div class="tags"><span>Java</span><span>Android</span></div>
+        <div class="clinks"><a href="https://github.com/AnaPaula-Galdino/SafeCity" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:28px" class="reveal">
+      <a class="btn btn-ghost" href="https://github.com/AnaPaula-Galdino?tab=repositories" target="_blank" rel="noopener">Ver os 20+ repositórios no GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="trajetoria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="k">Trajetória & Comunidade</span>
+      <h2>Experiência, formação e evolução constante</h2>
+    </div>
+    <div class="tl">
+      <div class="titem reveal"><div class="mark"></div><div><h3>Supervisora de Faturamento</h3><div class="when">2025 · atual</div><div class="meta">Liderança de equipe, transformação digital, agentes de IA, automação (Python/IA/RPA), integração via APIs e dashboards operacionais.</div></div></div>
+      <div class="titem reveal"><div class="mark"></div><div><h3>Analista de Faturamento Sênior</h3><div class="when">2024 · 2025</div><div class="meta">Análise operacional, validação de dados, padronização e melhoria contínua de processos.</div></div></div>
+      <div class="titem reveal"><div class="mark"></div><div><h3>Analista de Seguros</h3><div class="when">2021 · 2024</div><div class="meta">Faturamento e rateio com SQL Server, Python e Excel; gestão de bases e indicadores operacionais.</div></div></div>
+      <div class="titem reveal"><div class="mark"></div><div><h3>Pós-graduação em Data Analytics</h3><div class="when">FIAP · em andamento</div><div class="meta">Análise de dados, estatística e Machine Learning aplicados a negócios.</div></div></div>
+      <div class="titem reveal"><div class="mark"></div><div><h3>Análise e Desenvolvimento de Sistemas</h3><div class="when">Eniac · concluído</div><div class="meta">Base sólida em desenvolvimento e lógica de programação.</div></div></div>
+      <div class="titem reveal"><div class="mark"></div><div><h3>Comunidade de IA & Dados</h3><div class="when">Build with AI · eventos FIAP/IQVIA</div><div class="meta">Participação ativa em eventos de IA Generativa, Google Cloud e dados aplicados.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Vamos <span class="grad-text">conversar?</span></h2>
+      <p>Para parcerias, projetos ou uma boa troca sobre dados e IA, é só me chamar por um dos canais abaixo.</p>
+      <div class="cgrid">
+        <a class="btn btn-primary" href="mailto:ana.galdiino@outlook.com">✉️ E-mail</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/galdinoana/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/AnaPaula-Galdino" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="https://wa.me/5511980509050" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Ana Paula Galdino · Feito com dados, código e muito café ☕</footer>
+
+<script>
+  var roles=["Profissional de Tecnologia","Dados · IA · Automação","Liderança em Faturamento","Python · SQL · BI"];
+  var el=document.getElementById('typed'), ri=0, ci=0, del=false;
+  function type(){
+    var w=roles[ri]; el.textContent=w.slice(0,ci);
+    if(!del){ ci++; if(ci>w.length){ del=true; setTimeout(type,1400); return; } }
+    else{ ci--; if(ci===0){ del=false; ri=(ri+1)%roles.length; } }
+    setTimeout(type, del?40:90);
+  }
+  type();
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(x){io.observe(x);});
+
+  function ac(node){var t=+node.dataset.count,s=node.dataset.suf||'',d=1500,t0=performance.now();(function k(n){var p=Math.min(1,(n-t0)/d);node.textContent=Math.floor((1-Math.pow(1-p,3))*t).toLocaleString('pt-BR')+s;if(p<1)requestAnimationFrame(k);})(performance.now());}
+  var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){ac(e.target);co.unobserve(e.target);}});},{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(x){co.observe(x);});
+
+  ['mtrack','certTrack'].forEach(function(id){var t=document.getElementById(id);if(t)t.innerHTML+=t.innerHTML;});
+
+  var links=Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  window.addEventListener('scroll',function(){var y=window.scrollY+120,i=0;secs.forEach(function(s,k){if(s&&s.offsetTop<=y)i=k;});links.forEach(function(l){l.classList.remove('active');});if(links[i])links[i].classList.add('active');},{passive:true});
+</script>
 </body>
 </html>
